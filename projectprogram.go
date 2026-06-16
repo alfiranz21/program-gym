@@ -44,7 +44,7 @@ func cetakLatihan(A [NMAX]Latihan, n int, judul string) {
 		}
 	}
 }
-func selectionSortLatihan(A [NMAX]Latihan, n int, isAscending bool) [NMAX]Latihan {
+func selectionSortLatihan(A [NMAX]Latihan, n int, naikAscending bool) [NMAX]Latihan {
 	for i := 0; i < n-1; i++ {
 		idxEkstrim := i
 		for j := i + 1; j < n; j++ {
@@ -64,22 +64,22 @@ func selectionSortLatihan(A [NMAX]Latihan, n int, isAscending bool) [NMAX]Latiha
 	}
 	return A
 }
-func insertionSortLatihan(A [NMAX]Latihan, n int, isAscending bool) [NMAX]Latihan {
+func insertionSortLatihan(A [NMAX]Latihan, n int, naikAscending bool) [NMAX]Latihan {
 	for i := 1; i < n; i++ {
-		key := A[i]
+		target := A[i]
 		j := i - 1
 		if isAscending {
-			for j >= 0 && A[j].NamaGerakan > key.NamaGerakan {
+			for j >= 0 && A[j].NamaGerakan > target.NamaGerakan {
 				A[j+1] = A[j]
 				j--
 			}
 		} else {
-			for j >= 0 && A[j].NamaGerakan < key.NamaGerakan {
+			for j >= 0 && A[j].NamaGerakan < target.NamaGerakan {
 				A[j+1] = A[j]
 				j--
 			}
 		}
-		A[j+1] = key
+		A[j+1] = target
 	}
 	return A
 }
