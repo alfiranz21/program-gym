@@ -136,7 +136,7 @@ func tambahLatihanPro(A [NMAX]Latihan, n int) ([NMAX]Latihan, int) {
 }
 
 func hapusLatihanPro(A [NMAX]Latihan, n int, namaHapus string) ([NMAX]Latihan, int) {
-	idx := sequentialSearch(A, n, namaHapus) // Manfaatkan sequential search
+	idx := sequentialSearch(A, n, namaHapus) 
 	if idx != -1 {
 		for i := idx; i < n-1; i++ {
 			A[i] = A[i+1]
@@ -240,7 +240,6 @@ func main() {
 						nPilih = nLower
 						judul = "PAKET LOWER BODY"
 					}
-
 					cetakLatihan(DataPilih, nPilih, judul)
 					aksiNewbieJalan := true
 					var aksi int
@@ -285,14 +284,13 @@ func main() {
 		} else if pilihanUtama == 2 {
 			menuProJalan := true
 			var pilihanPro int
-
 			for menuProJalan {
 				fmt.Println("\n--- MENU PRO GYM (CUSTOM HARIAN) ---")
 				fmt.Println("1. Kelola Latihan (Senin/Selasa/Rabu)")
 				fmt.Println("2. Kembali ke Menu Utama")
 				fmt.Print("Pilih: ")
 				fmt.Scan(&pilihanPro)
-
+				
 				if pilihanPro == 1 {
 					var hari string
 					fmt.Print("Input Hari (Senin/Selasa/Rabu): ")
@@ -323,7 +321,6 @@ func main() {
 								dataTemp = ProRabu
 								nTemp = nRabu
 							}
-
 							if pilihanPro == 1 {
 								dataTemp, nTemp = tambahLatihanPro(dataTemp, nTemp)
 							} else if pilihanPro == 2 {
@@ -343,7 +340,6 @@ func main() {
 								fmt.Println("2. Binary Search")
 								fmt.Print("Pilih: ")
 								fmt.Scan(&metodeCari)
-
 								if metodeCari == 1 {
 									idx := sequentialSearch(dataTemp, nTemp, cari)
 									if idx != -1 {
@@ -394,14 +390,12 @@ func main() {
 					} else {
 						fmt.Println("Hari tidak valid.")
 					}
-
 				} else if pilihanPro == 2 {
 					menuProJalan = false
 				} else {
 					fmt.Println("Pilihan salah.")
 				}
 			}
-
 		} else if pilihanUtama == 3 {
 			menuUtamaJalan = false
 			fmt.Println("Program selesai. Keep grinding!")
